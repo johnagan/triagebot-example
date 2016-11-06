@@ -15,8 +15,8 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 ## Usage
 
 ### Environment Variables
-* **TOKEN** - The Slack token
-* **PORT** - The webserver port
+* `TOKEN` - The Slack token
+* `PORT` - The webserver port
 
 ### Starting
 ```shell
