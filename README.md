@@ -8,9 +8,26 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 * [Review](settings.json#L17) - Messages that are in review
 * [Addressed](settings.json#L20) - Messages that have been addressed
 
-### Requirements
+## Requirements
 * A [Slash Command](https://my.slack.com/services/new/slash-commands) setup on your Slack Team
 * A [Slack Bot Token](https://my.slack.com/services/new/bot) or a token with atleast the `channels:history` scope
+
+## Contents
+
+* [index.js](index.js) - A very basic webserver and http client to post back to Slack
+* [triage.js](triage.js) - The main functionality lies here. Pass in the Slash command payload, the channel history, and optionally any settings overrides. You'll get a formatted Slack message with the results.
+
+### API
+```js
+let triage = require('./triage');
+
+let message = triage(
+  payload,    // The payload from the Slack slash command
+  messages,   // An array of slack messages to triage
+  settings    // Any settings overrides to apply [optional]
+ );
+```
+
 
 ## Private Response
 ![triage-private](https://cloud.githubusercontent.com/assets/35968/20042579/5dfe2390-a431-11e6-8ff6-ed8158329328.png)
@@ -28,3 +45,6 @@ triage(payload, messages, {
   display: [ "pending", "looked_at" ]
 });
 ```
+
+## Existing Apps
+Already have an app and just want the Triage builder? No problem, you could require this package or copy the contents from [triage.js](triage.js).
