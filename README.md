@@ -10,7 +10,7 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 
 ## Requirements
 * A [Slash Command](https://my.slack.com/services/new/slash-commands) setup on your Slack Team
-* A [Slack Bot Token](https://my.slack.com/services/new/bot) or a token with atleast the `channels:history` scope
+* A [Slack Bot Token](https://my.slack.com/services/new/bot) or a token with at least the `channels:history` scope
 
 ## Usage
 
