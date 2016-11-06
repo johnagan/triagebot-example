@@ -52,7 +52,7 @@ You can adjust the messages, emoji, and reactjis by updates the [settings.json](
 let triage = require('triage');
 
 triage(payload, messages, {
-  display: [ "pending", "looked_at" ]
+  display: [ "pending", "review" ]
 });
 ```
 
