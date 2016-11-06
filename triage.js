@@ -5,18 +5,18 @@ const DEFAULTS = require('./settings.json');
  * Create a triage report
  *
  * @param {Object} payload - The Slack slash command payload
- * @param {Object[]} history - The Slack message history
+ * @param {Object[]} message - The Slack message history
  * @param {Object} options - (optional) settings overrides
  * @returns {Object} The Slack triage report message
  */
-function create(payload, history, options) {
+function create(payload, messages, options) {
   let settings = Object.assign({}, DEFAULTS, options);
 
   let map = getRequest.bind(null, settings);
   let sort = (a, b) => a.priority - b.priority;
   let filter = m => m.emoji && !m.bot;
 
-  let requests = history.map(map).filter(filter).sort(sort);
+  let requests = messages.map(map).filter(filter).sort(sort);
   let message = buildMessage(payload, requests, settings);
   
   return message;
