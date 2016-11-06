@@ -25,7 +25,7 @@ let message = triage(
   payload,    // The payload from the Slack slash command
   messages,   // An array of slack messages to triage
   settings    // Any settings overrides to apply [optional]
- );
+);
 ```
 
 
