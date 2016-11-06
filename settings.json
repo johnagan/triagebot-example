@@ -1,0 +1,38 @@
+{
+  "unfurl_links": true,
+
+  "publish_text": "publish",
+
+  "display": [ "pending", "looked_at", "addressed" ],
+  
+  "pending": {
+    "title": "There are `{{count}}` request(s) pending in {{channel}}:",
+    "emojis": [ "red_circle", "large_blue_circle", "white_circle" ]
+  },
+
+  "looked_at": {
+    "title": "There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:",
+    "emojis": [ "eyes" ]
+  },
+
+  "addressed": {
+    "title": "There are `{{count}}` request(s) addressed in {{channel}}:",
+    "emojis": [ "white_check_mark" ]
+  },
+
+  "help": [
+    {
+      "color": "#fff",
+      "text": "\n"
+    },
+    {
+      "mrkdwn_in": [ "text", "pretext" ],
+      "pretext": "Here's how the *Triage Bot* works:",
+      "text": "I look at messages posted in here since yesterday.\nI only care about messages that have :red_circle:, :large_blue_circle:, or :white_circle:.\nIf a messages has :eyes: reaction, it's in progress. \nIf it has a :white_check_mark:, it's done. Otherwise, it's still pending.\n"
+    },
+    {
+      "mrkdwn_in": [ "text", "pretext" ],
+      "pretext": "To publish this to the channel type `/triage publish`."
+    }
+  ]
+}
