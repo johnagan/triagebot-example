@@ -3,10 +3,14 @@
 ## What is a Triage Bot?
 After triggering this bot through a slash command, it will scan the last 1000 messages in the current channel and look for messages that contain certain emojis [[configurable](settings.json#L10)] in the message (not reactions). These messages will be grouped into statuses and reported to the user.
 
-## Status
+### Statuses
 * [Pending](settings.json#L10) - Messages pending review
 * [Review](settings.json#L17) - Messages that are in review
 * [Addressed](settings.json#L20) - Messages that have been addressed
+
+### Requirements
+* A [Slash Command](https://my.slack.com/services/new/slash-commands) setup on your Slack Team
+* A [Slack Bot Token](https://my.slack.com/services/new/bot) or a token with atleast the `channels:history` scope
 
 ## Private Response
 ![triage-private](https://cloud.githubusercontent.com/assets/35968/20042579/5dfe2390-a431-11e6-8ff6-ed8158329328.png)
