@@ -1,5 +1,3 @@
-# Triage Bot Example
-
 ## What is a Triage Bot?
 After triggering this bot through a slash command, it will scan the last 1000 messages in the current channel and look for messages that contain certain emojis [[configurable](settings.json#L10)] in the message (not reactions). These messages will be grouped into statuses and reported to the user.
 
