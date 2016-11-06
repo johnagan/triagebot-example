@@ -12,8 +12,18 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 * A [Slash Command](https://my.slack.com/services/new/slash-commands) setup on your Slack Team
 * A [Slack Bot Token](https://my.slack.com/services/new/bot) or a token with atleast the `channels:history` scope
 
-## Contents
+## Usage
 
+### Environment Variables
+* **TOKEN** - The Slack token
+* **PORT** - The webserver port
+
+### Starting
+```shell
+TOKEN=xoxp-XXXXXXXXXX PORT=3000 npm start
+```
+
+## Contents
 * [index.js](index.js) - A very basic webserver and http client to post back to Slack
 * [triage.js](triage.js) - The main functionality lies here. Pass in the Slash command payload, the channel history, and optionally any settings overrides. You'll get a formatted Slack message with the results.
 
