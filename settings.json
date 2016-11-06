@@ -3,14 +3,14 @@
 
   "publish_text": "publish",
 
-  "display": [ "pending", "looked_at", "addressed" ],
+  "display": [ "pending", "review" ],
   
   "pending": {
     "title": "There are `{{count}}` request(s) pending in {{channel}}:",
     "emojis": [ "red_circle", "large_blue_circle", "white_circle" ]
   },
 
-  "looked_at": {
+  "review": {
     "title": "There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:",
     "emojis": [ "eyes" ]
   },
