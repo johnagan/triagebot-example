@@ -6,9 +6,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node --harmony server.js"
+    "start": "babel-node server.js"
   },
   "dependencies": {
-    "axios": "^0.15.2"
+    "axios": "^0.15.2",
+    "babel-cli": "^6.18.0"
   }
 }
