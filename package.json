@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node --presets es2015 server.js"
+    "start": "babel-node --presets es2015 index.js"
   },
   "dependencies": {
     "axios": "^0.15.2",
