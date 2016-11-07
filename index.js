@@ -59,8 +59,8 @@ function getRequest(settings, message) {
  * @returns {Object} The Slack triage report message
  */
 function buildMessage(payload, requests, settings) {
-  let message = { unfurl_links: settings.unfurl_links };
   let {channel_id, channel_name} = payload;
+  let message = { unfurl_links: settings.unfurl_links };
   let publish_test = new RegExp(settings.publish_text, 'i');
 
   // build display text
