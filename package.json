@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node --harmony server.js"
   },
   "dependencies": {
     "axios": "^0.15.2"
