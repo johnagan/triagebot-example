@@ -38,4 +38,4 @@ function handleCommand(payload) {
 }
 
 // start server
-http.createServer(handleRequest).listen(PORT, () => console.log(`started on ${PORT}`));
+http.createServer(handleRequest).listen(PORT, () => console.log(`server started on ${PORT}`));
