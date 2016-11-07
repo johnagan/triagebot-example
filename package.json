@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A triage bot example for Slack",
   "author": "John Agan <jagan@slack-corp.com>",
-  "main": "triage.js",
+  "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "axios": "^0.15.2"
   }
