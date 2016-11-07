@@ -1,0 +1,16 @@
+{
+  "name": "Triage Bot",
+  "description": "A triage bot example for Slack",
+  "keywords": [
+    "triage",
+    "slack",
+    "bot"
+  ],
+  "repository": "https://github.com/johnagan/triagebot-example",
+  "env": {
+    "TOKEN": {
+      "description": "A Slack token with at least the channels:write scope",
+      "value": ""
+    }
+  }
+}
