@@ -21,7 +21,7 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 TOKEN=xoxp-XXXXXXXXXX PORT=3000 npm start
 ```
 
-## Contents
+### Contents
 * [server.js](server.js) - A very basic webserver and http client to post back to Slack
 * [index.js](index.js) - The main functionality lies here. Pass in the Slash command payload, the channel history, and optionally any settings overrides. You'll get a formatted Slack message with the results.
 
@@ -36,14 +36,7 @@ let message = triage(
 );
 ```
 
-
-## Private Response
-![triage-private](https://cloud.githubusercontent.com/assets/35968/20042579/5dfe2390-a431-11e6-8ff6-ed8158329328.png)
-
-## Public Response
-![triage-public](https://cloud.githubusercontent.com/assets/35968/20042580/5e01c3ba-a431-11e6-8db3-6e0f7021d979.png)
-
-## Settings
+### Settings
 You can adjust the messages, emoji, and reactjis by updates the [settings.json](settings.json) file or passing in any overrides you'd like to the main function.
 
 ```js
@@ -53,6 +46,14 @@ triage(payload, messages, {
   display: [ "pending", "review" ]
 });
 ```
+
+
+## Private Response
+![triage-private](https://cloud.githubusercontent.com/assets/35968/20042579/5dfe2390-a431-11e6-8ff6-ed8158329328.png)
+
+## Public Response
+![triage-public](https://cloud.githubusercontent.com/assets/35968/20042580/5e01c3ba-a431-11e6-8db3-6e0f7021d979.png)
+
 
 ## Existing Apps
 Already have an app and just want the Triage builder? No problem, you could require this package or copy the contents from [index.js](index.js).
