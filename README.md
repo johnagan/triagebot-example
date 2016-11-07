@@ -24,8 +24,8 @@ TOKEN=xoxp-XXXXXXXXXX PORT=3000 npm start
 ```
 
 ### Contents
-* [server.js](server.js) - A very basic webserver and http client to post back to Slack
-* [index.js](index.js) - The main functionality lies here. Pass in the Slash command payload, the channel history, and optionally any settings overrides. You'll get a formatted Slack message with the results.
+* [index.js](index.js) - A very basic webserver and http client to post back to Slack
+* [triage.js](triage.js) - The main functionality lies here. Pass in the Slash command payload, the channel history, and optionally any settings overrides. You'll get a formatted Slack message with the results.
 
 ### API
 ```js
@@ -54,4 +54,4 @@ triage(payload, messages, {
 
 
 ## Existing Apps
-Already have an app and just want the Triage builder? No problem, you could require this package or copy the contents from [index.js](index.js).
+Already have an app and just want the Triage builder? No problem, you could require this package or copy the contents from [triage.js](triage.js).
