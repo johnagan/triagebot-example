@@ -10,7 +10,7 @@ const {TOKEN, PORT} = process.env,
       http = require('http');
 
 
-// Handle any request to this server
+// Handle any request to this server and parse the POST
 function handleRequest(req, res){
   let body = "";
   req.on('data', data => body += data);
