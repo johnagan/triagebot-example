@@ -27,7 +27,7 @@ TOKEN=xoxp-XXXXXXXXXX PORT=3000 npm start
 
 ### API
 ```js
-let triage = require('./triage');
+let triage = require('./index');
 
 let message = triage(
   payload,    // The payload from the Slack slash command
@@ -40,7 +40,7 @@ let message = triage(
 You can adjust the messages, emoji, and reactjis by updates the [settings.json](settings.json) file or passing in any overrides you'd like to the main function.
 
 ```js
-let triage = require('triage');
+let triage = require('./index');
 
 triage(payload, messages, {
   display: [ "pending", "review" ]
