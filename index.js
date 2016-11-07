@@ -1,8 +1,14 @@
+/* 
+ * This is a very basic webserver and HTTP Client.
+ * In production, you may want to use something like express
+ * or Botkit to host a webserver and manager API calls
+ */
 const {TOKEN, PORT} = process.env,
       triage = require('./triage'),
       qs = require('querystring'),
       axios = require('axios'),
       http = require('http');
+
 
 // Handle any request to this server
 function handleRequest(req, res){
@@ -11,6 +17,7 @@ function handleRequest(req, res){
   req.on('end', () => handleCommand(qs.parse(body)));
   res.end('');
 }
+
 
 // Get channel history, build triage report, and respond with results
 function handleCommand(payload) {
@@ -30,5 +37,5 @@ function handleCommand(payload) {
   getHistory.then(buildReport).then(postResults);
 }
 
-
+// start server
 http.createServer(handleRequest).listen(PORT, () => console.log(`started on ${PORT}`));
