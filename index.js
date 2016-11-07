@@ -4,7 +4,7 @@ const {TOKEN, PORT} = process.env,
       axios = require('axios'),
       http = require('http');
 
-
+// Handle any request to this server
 function handleRequest(req, res){
   let body = "";
   req.on('data', data => body += data);
@@ -12,7 +12,7 @@ function handleRequest(req, res){
   res.end('');
 }
 
-
+// Get channel history, build triage report, and respond with results
 function handleCommand(payload) {
   let {channel_id, response_url} = payload;
 
