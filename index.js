@@ -1,7 +1,7 @@
 /* 
  * This is a very basic webserver and HTTP Client.
- * In production, you may want to use something like express
- * or Botkit to host a webserver and manager API calls
+ * In production, you may want to use something like Express.js
+ * or Botkit to host a webserver and manage API calls
  */
 const {TOKEN, PORT} = process.env,
       triage = require('./triage'),
