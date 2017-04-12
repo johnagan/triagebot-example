@@ -46,7 +46,7 @@ function getRequest(settings, message) {
   let bot = message.subtype === 'bot_message';                // bot posts
   let priority = settings.pending.emojis.indexOf(emoji);      // display order
 
-  return { bot, priority, emoji, looked_at, addressed, pending, id, message };
+  return { bot, priority, emoji, review, addressed, pending, id, message };
 }
 
 
