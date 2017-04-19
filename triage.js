@@ -18,7 +18,7 @@ function create(payload, messages, options) {
 
   let requests = messages.map(map).filter(filter).sort(sort);
   let message = buildMessage(payload, requests, settings);
-  
+
   return message;
 }
 
@@ -39,7 +39,7 @@ function getRequest(settings, message) {
   // flags based on reactions
   let reactions = (message.reactions || []).map(r => r.name);
   let addressed = settings.addressed.emojis.some(e => reactions.includes(e));
-  let review = settings.review.emojis.some(e => reactions.includes(e)) && !addressed; 
+  let review = settings.review.emojis.some(e => reactions.includes(e)) && !addressed;
   let pending = emoji && !review && !addressed;
 
   let id = message.ts.replace('.', '');                       // deep link id
@@ -55,7 +55,7 @@ function getRequest(settings, message) {
  *
  * @param {Object} settings - The triage report settings
  * @param {Object} payload - The Slack slash command payload
- * @param {Object[]} requests - The triage request details 
+ * @param {Object[]} requests - The triage request details
  * @returns {Object} The Slack triage report message
  */
 function buildMessage(payload, requests, settings) {
@@ -70,7 +70,7 @@ function buildMessage(payload, requests, settings) {
   // attach instructions if not publish else make public
   if (publish_test.test(payload.text)) message.response_type = 'in_channel';
   else message.attachments = settings.help;
-    
+
   return message;
 }
 
@@ -80,7 +80,7 @@ function buildMessage(payload, requests, settings) {
  *
  * @param {String} name - The section name
  * @param {Object} settings - The triage report settings
- * @param {Object[]} requests - The triage request details 
+ * @param {Object[]} requests - The triage request details
  * @param {Object} payload - The Slack slash command payload
  * @returns {String} The section text
  */
