@@ -28,13 +28,13 @@ function handleCommand(payload) {
   let getHistory = axios.post('https://slack.com/api/channels.history', params);
 
   // build the triage report
-  let buildReport = result => Promise.resolve( triage(payload, result.data.messages) );
+  let buildReport = result => Promise.resolve( triage(payload, result.data.messages || []) );
   
   // post back to channel
   let postResults = results => axios.post(response_url, results);
 
   // execute
-  getHistory.then(buildReport).then(postResults);
+  getHistory.then(buildReport).then(postResults).catch(console.error);
 }
 
 // start server
