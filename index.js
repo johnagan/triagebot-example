@@ -22,6 +22,10 @@ function handleRequest(req, res){
 // Get channel history, build triage report, and respond with results
 function handleCommand(payload) {
   let {channel_id, response_url} = payload;
+  if (!response_url) {
+    console.log('got empty response_url in payload');
+    return;
+  }
 
   // load channel history
   let params = qs.stringify({ count: 1000, token: TOKEN, channel: channel_id });
