@@ -1,4 +1,7 @@
 {
-	"There are `{{count}}` request(s) pending in {{channel}}:": "There be `{{count}}` request(s) waiting to walk the plank of {{channel}}:",
-	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "There be `{{count}}` request(s) under the steely :eyes: of a crewmate in {{channel}}:"
+	"There are `{{count}}` request(s) pending in {{channel}}:": "There be `{{count}}` request(s) waiting to walk the plank in {{channel}}:",
+	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "There be `{{count}}` request(s) being looked :eyes: by a fellow crewmate in {{channel}}:",
+	"Here's how the *Triage Bot* works:": "Here's how the the scurvy *Triage Bot* works:",
+	"I look at the last 1000 messages posted in this channel.\nI'll only review messages that have one of these reacji - {{pending_emojis}}.\nIf a message has one of these reacji - {{review_emojis}} -  it's in progress.\nIf it has one of these reacji - {{addressed_emojis}} - it's done. Otherwise it's still pending.": "I look 1000 leagues under the sea to messages posted in this channel.\nI'll only review messages that have one of these reacji - {{pending_emojis}}.\nIf a message has one of these reacji - {{review_emojis}} -  it's walking the plank as we speak!.\nIf it has one of these reacji - {{addressed_emojis}} - it's in Davy Jones' locker. Otherwise it's still pending.",
+	"To publish this to the channel type `/triage publish`.": "To tell yer crewmates about this tale, type `/triage publish`."
 }

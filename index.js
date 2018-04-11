@@ -3,7 +3,7 @@
  * In production, you may want to use something like Express.js
  * or Botkit to host a webserver and manage API calls
  */
-const {TOKEN, PORT} = process.env,
+const {TOKEN, PORT, LOCALE} = process.env,
       triage = require('./triage'),
       qs = require('querystring'),
       axios = require('axios'),
@@ -18,7 +18,7 @@ function handleRequest(req, res){
     directory: __dirname + '/locales'
   });
 
-  i18n.setLocale('pirate'); // What language should TriageBot speak?
+  i18n.setLocale(LOCALE || 'pirate'); // What language should TriageBot speak?
 
   let body = "";
   req.on('data', data => body += data);

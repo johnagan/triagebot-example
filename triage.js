@@ -38,8 +38,8 @@ function getRequest(settings, message) {
 
   // flags based on reactions
   let reactions = (message.reactions || []).map(r => r.name);
-  let addressed = settings.addressed.emojis.some(e => reactions.includes(e));
-  let review = settings.review.emojis.some(e => reactions.includes(e)) && !addressed;
+  let addressed = settings.addressed.emojis.some(e => reactions.includes(e.replace(/:/g, '')));
+  let review = settings.review.emojis.some(e => reactions.includes(e.replace(/:/g, ''))) && !addressed;
   let pending = emoji && !review && !addressed;
 
   let id = message.ts.replace('.', '');                       // deep link id
@@ -68,8 +68,32 @@ function buildMessage(payload, requests, settings) {
   message.text = settings.display.map(map).join('\n\n\n');
 
   // attach instructions if not publish else make public
+  let pending_emojis = settings.pending.emojis.join(', ');
+  let review_emojis = settings.review.emojis.join(', ');
+  let addressed_emojis = settings.addressed.emojis.join(', ');
+  let help_text = [
+    "I look at the last 1000 messages posted in this channel.",
+    "I'll only review messages that have one of these reacji - {{pending_emojis}}.",
+    "If a message has one of these reacji - {{review_emojis}} -  it's in progress.",
+    "If it has one of these reacji - {{addressed_emojis}} - it's done. Otherwise it's still pending."
+  ]
+  let attachment = [
+    {
+      color: "#fff",
+      text: "\n"
+    },
+    {
+      mrkdwn_in: ["text", "pretext"],
+      pretext: i18n.__("Here's how the *Triage Bot* works:"),
+      text: i18n.__(help_text.join("\n"), { pending_emojis: pending_emojis, review_emojis: review_emojis, addressed_emojis: addressed_emojis})
+    },
+    {
+      mrkdwn_in: ["pretext"],
+      pretext: i18n.__("To publish this to the channel type `/triage publish`.")
+    }
+  ];
   if (publish_test.test(payload.text)) message.response_type = 'in_channel';
-  else message.attachments = settings.help;
+  else message.attachments = attachment;
 
   return message;
 }
@@ -92,7 +116,7 @@ function buildSection(settings, requests, payload, name) {
   let title = i18n.__(settings[name].title, {count: filtered.length, channel: '<#'+channel_id+'|'+channel_name+'>' }); // section title
   title = title.replace(/&lt;/g, `<`); // Lightweight encoding of HTML Entities
   title = title.replace(/&gt;/g, `>`); // Lightweight encoding of HTML Entities
-  let items = filtered.map(r => `:${r.emoji}: ${baseUrl + r.id}`);  // section line item
+  let items = filtered.map(r => `${r.emoji} ${baseUrl + r.id}`);  // section line item
   let text = [title].concat(items).join('\n');                      // combined text
   return text;
 }
