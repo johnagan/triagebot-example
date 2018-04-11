@@ -1,0 +1,4 @@
+{
+	"There are `{{count}}` request(s) pending in {{channel}}:": "There be `{{count}}` request(s) waiting to walk the plank of {{channel}}:",
+	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "There be `{{count}}` request(s) under the steely :eyes: of a crewmate in {{channel}}:"
+}

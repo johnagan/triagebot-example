@@ -1,5 +1,5 @@
-const DEFAULTS = require('./settings.json');
-
+const DEFAULTS = require('./settings.json'),
+      i18n = require('i18n');
 
 /**
  * Create a triage report
@@ -18,7 +18,7 @@ function create(payload, messages, options) {
 
   let requests = messages.map(map).filter(filter).sort(sort);
   let message = buildMessage(payload, requests, settings);
-  
+
   return message;
 }
 
@@ -39,7 +39,7 @@ function getRequest(settings, message) {
   // flags based on reactions
   let reactions = (message.reactions || []).map(r => r.name);
   let addressed = settings.addressed.emojis.some(e => reactions.includes(e));
-  let review = settings.review.emojis.some(e => reactions.includes(e)) && !addressed; 
+  let review = settings.review.emojis.some(e => reactions.includes(e)) && !addressed;
   let pending = emoji && !review && !addressed;
 
   let id = message.ts.replace('.', '');                       // deep link id
@@ -55,7 +55,7 @@ function getRequest(settings, message) {
  *
  * @param {Object} settings - The triage report settings
  * @param {Object} payload - The Slack slash command payload
- * @param {Object[]} requests - The triage request details 
+ * @param {Object[]} requests - The triage request details
  * @returns {Object} The Slack triage report message
  */
 function buildMessage(payload, requests, settings) {
@@ -70,7 +70,7 @@ function buildMessage(payload, requests, settings) {
   // attach instructions if not publish else make public
   if (publish_test.test(payload.text)) message.response_type = 'in_channel';
   else message.attachments = settings.help;
-    
+
   return message;
 }
 
@@ -80,7 +80,7 @@ function buildMessage(payload, requests, settings) {
  *
  * @param {String} name - The section name
  * @param {Object} settings - The triage report settings
- * @param {Object[]} requests - The triage request details 
+ * @param {Object[]} requests - The triage request details
  * @param {Object} payload - The Slack slash command payload
  * @returns {String} The section text
  */
@@ -88,15 +88,12 @@ function buildSection(settings, requests, payload, name) {
   let {channel_id, channel_name, team_domain} = payload;
   let baseUrl = `https://${team_domain}.slack.com/archives/${channel_name}/p`;
 
-  let {title} = settings[name];                                     // section title
   let filtered = requests.filter(r => r[name]);                     // filtered list of requests
+  let title = i18n.__(settings[name].title, {count: filtered.length, channel: '<#'+channel_id+'|'+channel_name+'>' }); // section title
+  title = title.replace(/&lt;/g, `<`); // Lightweight encoding of HTML Entities
+  title = title.replace(/&gt;/g, `>`); // Lightweight encoding of HTML Entities
   let items = filtered.map(r => `:${r.emoji}: ${baseUrl + r.id}`);  // section line item
   let text = [title].concat(items).join('\n');                      // combined text
-
-  // replace template fields
-  text = text.replace(/{{count}}/g, filtered.length);
-  text = text.replace(/{{channel}}/g, `<#${channel_id}|${channel_name}>`);
-
   return text;
 }
 

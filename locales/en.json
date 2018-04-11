@@ -1,0 +1,5 @@
+{
+	"There are %s request(s) pending in %s:": "blah blah blah %s blah blah blah %s:",
+	"There are `{{count}}` request(s) pending in {{channel}}:": "There are `{{count}}` request(s) pending in {{channel}}:",
+	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:"
+}
