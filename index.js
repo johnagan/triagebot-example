@@ -18,7 +18,7 @@ function handleRequest(req, res){
     directory: __dirname + '/locales'
   });
 
-  i18n.setLocale(LOCALE || 'pirate'); // What language should TriageBot speak?
+  i18n.setLocale(LOCALE || 'en'); // What language should TriageBot speak?
 
   let body = "";
   req.on('data', data => body += data);
