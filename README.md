@@ -15,10 +15,11 @@ After triggering this bot through a slash command, it will scan the last 1000 me
 ### Environment Variables
 * `TOKEN` - The Slack token
 * `PORT` - The webserver port
+* `LOCALE` - The preferred locale. Defaults to `en`
 
 ### Starting
 ```shell
-TOKEN=xoxp-XXXXXXXXXX PORT=3000 npm start
+TOKEN=xoxp-XXXXXXXXXX PORT=3000 LOCALE=pirate npm start
 ```
 
 ### Contents
