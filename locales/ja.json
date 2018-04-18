@@ -1,7 +1,7 @@
 {
-	"There are `{{count}}` request(s) pending in {{channel}}:": "There are `{{count}}` request(s) pending in {{channel}}:",
-	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:",
-	"Here's how the *Triage Bot* works:": "Here's how the *Triage Bot* works:",
-	"I look at the last 1000 messages posted in this channel.\nI'll only review messages that have one of these reacji - {{pending_emojis}}.\nIf a message has one of these reacji - {{review_emojis}} -  it's in progress.\nIf it has one of these reacji - {{addressed_emojis}} - it's done. Otherwise it's still pending.": "I look at the last 1000 messages posted in this channel.\nI'll only review messages that have one of these reacji - {{pending_emojis}}.\nIf a message has one of these reacji - {{review_emojis}} -  it's in progress.\nIf it has one of these reacji - {{addressed_emojis}} - it's done. Otherwise it's still pending.",
-	"To publish this to the channel type `/triage publish`.": "To publish this to the channel type `/triage publish`."
+	"There are `{{count}}` request(s) pending in {{channel}}:": "`{{channel}} 内で保留のリクエストが {{count}}` 件あります。",
+	"There are `{{count}}` request(s) being looked :eyes: at in {{channel}}:": "{{channel}} 内でトリアージ中 :eyes: のリクエストが `{{count}}` 件あります。",
+	"Here's how the *Triage Bot* works:": "*Triage Bot* ってどう動く？",
+	"I look at the last 1000 messages posted in this channel.\nI'll only review messages that have one of these reacji - {{pending_emojis}}.\nIf a message has one of these reacji - {{review_emojis}} -  it's in progress.\nIf it has one of these reacji - {{addressed_emojis}} - it's done. Otherwise it's still pending.": "このボットはこのチャンネルに送信された最新の1000メッセージを読み込みます。\nその内、 {{pending_emojis}} などのリアク字をつけられたメッセージのみ審査します。\n {{review_emojis}} リアク字は進捗中、 {{addressed_emojis}} は終了を表します。\nその他は保留となります。",
+	"To publish this to the channel type `/triage publish`.": "これをチャンネル上に公開するには `/triage publish` のコマンドを打ち込んでください。"
 }
