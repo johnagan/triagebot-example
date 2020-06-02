@@ -1,3 +1,9 @@
+:construction:  **This repository is no longer being maintained.** :construction: 
+
+@slackapi has a similar and more up-to-date :sparkles: version of this app at https://github.com/slackapi/template-triage-bot that uses functionality which predate this one, including  Shortcuts, Granular Bot Scopes, and Bolt for Javascript.
+
+---
+
 ## What is a Triage Bot?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 After triggering this bot through a slash command, it will scan the last 1000 messages in the current channel and look for messages that contain certain emojis [[configurable](settings.json#L10)] in the text (not reactions). These messages will be grouped into statuses and reported to the user.
 
