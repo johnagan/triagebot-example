@@ -21,9 +21,13 @@ function handleRequest(req, res){
   i18n.setLocale(LOCALE || 'en'); // What language should TriageBot speak?
 
   let body = "";
-  req.on('data', data => body += data);
-  req.on('end', () => handleCommand(qs.parse(body)));
-  res.end('');
+  req.on('data', data => {
+    body += data;
+  });
+  req.on('end', () => {
+    handleCommand(qs.parse(body));
+    res.end('');
+  });
 }
 
 
@@ -39,6 +43,13 @@ function handleCommand(payload) {
   let params = qs.stringify({ count: 1000, token: TOKEN, channel: channel_id });
   let getHistory = axios.post('https://slack.com/api/channels.history', params);
 
+  let handleErrorResponse = result => {
+    if (!result.data.ok) {
+      return Promise.reject(`Slack API returned a failure result for channels.history: ${JSON.stringify(result.data)}`);
+    }
+    return Promise.resolve(result);
+  };
+
   // build the triage report
   let buildReport = result => Promise.resolve( triage(payload, result.data.messages || []) );
 
@@ -46,7 +57,7 @@ function handleCommand(payload) {
   let postResults = results => axios.post(response_url, results);
 
   // execute
-  getHistory.then(buildReport).then(postResults).catch(console.error);
+  getHistory.then(handleErrorResponse).then(buildReport).then(postResults).catch(console.error);
 }
 
 // start server
